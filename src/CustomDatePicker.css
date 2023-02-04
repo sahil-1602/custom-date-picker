@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --height: 200px;
+  --boxSize: 5;
+}
+
+h1 {
+  margin: 30px 0px;
+  color: white;
+  font-size: 42px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.date-picker-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 65px;
+  background-color: rgb(58, 86, 183);
+  margin: 30px auto;
+  cursor: pointer;
+  user-select: none;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: 2px solid rgb(54, 49, 56);
+}
+
+.selected-date {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+}
+
+.date-container {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  background-color: transparent;
+}
+
+.active {
+  visibility: visible !important;
+}
+
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: rgb(58, 86, 183);
+}
+
+.month .arrows {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.month .arrows:hover {
+  background-color: rgb(91, 122, 227);
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: var(--height);
+  grid-auto-rows: calc(var(--height) / var(--boxSize));
+  background-color: rgb(54, 49, 56);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.days-container .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+}
+
+.days-container .day:hover {
+  background-color: rgb(91, 122, 227);
+}
+
+.date-container .day.selected {
+  background-color: rgb(58, 86, 183);
+}
